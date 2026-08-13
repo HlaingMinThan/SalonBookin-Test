@@ -39,6 +39,11 @@ class User extends Authenticatable implements PasskeyUser
      *
      * @return array<string, string>
      */
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [
@@ -46,5 +51,10 @@ class User extends Authenticatable implements PasskeyUser
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
         ];
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->email === config('app.admin_email');
     }
 }

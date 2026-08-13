@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, FolderGit2, LayoutGrid } from '@lucide/vue';
+import { BookOpen, CalendarDays, ClipboardList, FolderGit2, LayoutGrid, Scissors } from '@lucide/vue';
 import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
@@ -15,6 +15,9 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as servicesIndex } from '@/routes/admin/services';
+import { index as slotsIndex } from '@/routes/admin/slots';
+import { index as bookingsIndex } from '@/routes/admin/bookings';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -22,6 +25,21 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
+    },
+    {
+        title: 'Services',
+        href: servicesIndex(),
+        icon: Scissors,
+    },
+    {
+        title: 'Time Slots',
+        href: slotsIndex(),
+        icon: CalendarDays,
+    },
+    {
+        title: 'Bookings',
+        href: bookingsIndex(),
+        icon: ClipboardList,
     },
 ];
 
